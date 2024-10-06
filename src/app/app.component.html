@@ -1,0 +1,36 @@
+<div class="scroll-snap">
+  <app-header></app-header>
+  @if(information.introduction.display){
+    <app-introduction id="hello"></app-introduction>
+  }
+</div>
+ @if(information.skillsSection.display){
+   <div class="scroll-snap wow bounceInUp">
+     <app-skills id="about-me"></app-skills>
+   </div>
+ }
+ @if(information.skillsSection.display){
+   <div class="scroll-snap">
+     <app-software-skills id="skills" ></app-software-skills>
+   </div>
+ }
+ @if(information.myJourney.display){
+   <div class="scroll-snap">
+     <app-work-experience id="journey" ></app-work-experience>
+   </div>
+ }
+ @if(information.openSource.display){
+   <div class="scroll-snap" >
+     <app-passion-projects id="projects" ></app-passion-projects>
+   </div>
+ }
+ @if(information.achievementSection.display){
+   <div class="scroll-snap">
+     <app-achievement-section id="achievements"></app-achievement-section>
+     <div class="footer-div">
+       <p class="footer-text" style="text-align:center" [ngClass]="{'dark-mode': isDarkMode}">
+         Made with ❤️ by Tirth
+       </p>
+     </div>
+   </div>
+ }

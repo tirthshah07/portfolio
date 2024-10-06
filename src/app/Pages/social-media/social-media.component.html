@@ -1,0 +1,25 @@
+<div class="social-media-div" *ngIf="socialMediaLinks.display">
+    <a
+      *ngIf="socialMediaLinks.github.trim() != ''"
+      [href]='socialMediaLinks.github'
+      [ngClass]="isDark ? 'icon-button-dark' : 'icon-button'"
+      class="icon-button"
+      target="_blank"
+      rel="noopener noreferrer">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a
+      *ngIf="socialMediaLinks.gmail.trim() != ''"
+      [href]='"mailto:" + socialMediaLinks.gmail'
+      [ngClass]="isDark ? 'icon-button-dark' : 'icon-button'"      target="_blank"
+      rel="noopener noreferrer">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+    <a
+      *ngIf="socialMediaLinks.linkedin.trim() != ''"
+      [href]='socialMediaLinks.linkedin'
+      [ngClass]="isDark ? 'icon-button-dark' : 'icon-button'"      target="_blank"
+      rel="noopener noreferrer">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+  </div>
