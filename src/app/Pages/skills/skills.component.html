@@ -1,18 +1,18 @@
-<div class="main" [ngClass]="{'dark-mode':isDark}" id="skills">
+<div class="main" [ngClass]="{'dark-mode':isDark}" id="about-me">
     <div class="skills-main-div">
       <div class="skills-image-div">
-        <img alt="Girl working" [src]="skillsImage">
+        <img alt="Boy working" [src]="skillsImage">
       </div>
       <div class="skills-text-div">
         <h1 class="skills-heading" [ngClass]="{'dark-mode':isDark}">
-          {{skillsSection.title}}
+          {{aboutSection.title}}
         </h1>
         <p class="subTitle skills-text-subtitle" [ngClass]="{'dark-mode':isDark}">
-          {{skillsSection.subTitle}}
+          {{aboutSection.subTitle}}
         </p>
-        <div *ngFor="let skill of skillsSection.skills">
+        <div *ngFor="let skill of aboutSection.skills">
           <p class="subTitle skills-text" [ngClass]="{'dark-mode':isDark}">
-            {{skill}}
+           {{skill}}
           </p>
         </div>
       </div>

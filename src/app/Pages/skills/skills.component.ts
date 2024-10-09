@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { skillsSection } from '../../information';
+import { aboutSection } from '../../information';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -14,12 +14,12 @@ export class SkillsComponent implements OnInit{
 
   isDark: boolean = false;
   skillsImage!: string;
-  skillsSection = skillsSection;
+  aboutSection = aboutSection;
 
   constructor(private theme: ThemeService) { }
 
   ngOnInit(): void {
-    this.skillsImage = skillsSection.skillsAvatar;
+    this.skillsImage = aboutSection.skillsAvatar;
     this.isDark = this.theme.isDarkMode();
     this.theme.darkTheme$.subscribe((mode)=>{
       this.isDark = mode == true;

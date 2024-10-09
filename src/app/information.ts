@@ -7,14 +7,14 @@ const splashScreen = {
   const introduction = {
     username: 'Tirth Shah',
     title: 'I\'m Tirth.',
-    welcomeAvatar: "/laptop-wave.png",
+    welcomeAvatar: "./laptop-wave.png",
     subTitle:
-      `I\'m a passionate software developer 👨🏻‍💻 from Gujarat, a city in the western part of India.
+      `I\'m a passionate software developer 👨🏻‍💻 from Gandhinagar, Gujarat, a vibrant city in the western part of India.
       Getting to be creative 🛠️ and trying something new is why I ❤️ what I do.
       \nLets connect to discuss a project or just want to say hi? My Inbox is open for all.`
     ,
     resumeLink:
-      'https://drive.google.com/',
+      'https://drive.google.com/drive/folders/19JNLiUbS0il8xBUWUeYssUTEg9CDMHYw?usp=sharing',
     display: true
   };
   
@@ -30,9 +30,9 @@ const splashScreen = {
   };
   
   
-  const skillsSection = {
+  const aboutSection = {
     title: 'About Me',
-    skillsAvatar: "/20084243-467778346_3-s5-v1.png",
+    skillsAvatar: "./20084243-467778346_3-s5-v1.png",
     subTitle: 'A passionate developer who loves exploring different technologies',
     skills: [
       '⚡ Ever since I was a kid I\'ve had a flair for technology and computers.',
@@ -40,12 +40,15 @@ const splashScreen = {
       '⚡ I\'m working towards becoming a well rounded web application developer who comes up with creative solutions.',
       '⚡ Fixing bugs, solving tough hard problems, watching actual users using something I built are a few reasons why i love being a developer.',
       '⚡ I have a bachelors degree in Electroics and Communications.',
-      '⚡ When I"m not working, I enjoy spending time in nature, exploring spirituality, playing both indoor and outdoor games, and engaging in volunteer work.'
+      '⚡ When I"m not working, I enjoy spending time in nature, exploring spirituality, playing both indoor and outdoor games and engaging in volunteer work.'
     ],
-  
-    /* Make Sure to add badge links from https://github.com/alexandresanlim/Badges4-README.md-Profile */
+    display: true
+  }
+
+  const skillsSection = {
+
     softwareSkillsHeader:'Technologies I\'ve dipped my toes in...',
-    softwareSkillsImage: "/20053717-467778346_3-s5-v1.png",
+    softwareSkillsImage: "./20053717-467778346_3-s5-v1.png",
     softwareSkills: [
       {
         skillName: 'html-5',
@@ -120,6 +123,9 @@ const splashScreen = {
     display: true
   };
   
+    /* Make Sure to add badge links from https://github.com/alexandresanlim/Badges4-README.md-Profile */
+    
+  
   //include education, work expericence and others
   const myJourney = {
     display: true,
@@ -128,7 +134,7 @@ const splashScreen = {
         role: 'Student',
         short_note: 'ECE Engineer',
         company: 'Government Engineering College - Bhaurch',
-        companyLogo: "/gec-logo.png",
+        companyLogo: "./gec-logo.png",
         date: 'Jun 2018 – Jun 2022',
         desc: '',
         keyNotes: [
@@ -141,7 +147,7 @@ const splashScreen = {
         role: 'Intern',
         company: 'Cutting Edge Infotech',
         short_note: '',
-        companyLogo: "/cei-logo.png",
+        companyLogo: "./cei-logo.png",
         date: 'Jun 2022 – Sep 2022',
         desc: '',
         keyNotes: [
@@ -155,22 +161,22 @@ const splashScreen = {
         role: 'Frontend Developer',
         company: 'Cutting Edge Infotech',
         short_note: '',
-        companyLogo: "/cei-logo.png",
+        companyLogo: "./cei-logo.png",
         date: 'Sep 2022 – Nov 2023',
         desc: '',
         keyNotes: [
           'Developed dynamic web applications using AngularJS and jQuery, effectively integrating REST APIs to enhance application features and performance',
-          'Conducted various R&D activities to improve performance of existing modules in the project.',
+          'Conducted various R&D activities to improve performance of existing modules in the project',
           'Explored Angular, Node and React as a part of R&d Activities',
           'Created one project for client using Angular 14',
-          'Mentored and trained two newbies into the project.'
+          'Mentored and trained two newbies into the project'
         ]
       },
       {
         role: 'Angular Developer',
         company: 'Samcom Technobrains Pvt Ltd',
         short_note: '',
-        companyLogo: "/samcom-logo.png",
+        companyLogo: "./samcom-logo.png",
         date: 'Dec 2023 – Current',
         desc: '',
         keyNotes: [
@@ -202,7 +208,7 @@ const splashScreen = {
         title: 'Essential Program in Javascript Programming',
         subtitle:
           'Credential: LUJS0521A0078',
-        image: "/letup-logo.png",
+        image: "./letup-logo.png",
         imageAlt: 'Javascript Certificate',
         footerLink: [
           {
@@ -215,7 +221,7 @@ const splashScreen = {
         title: 'Essential Program in Python Programming',
         subtitle:
           'Credential: LUPY1220A0845',
-        image: "/letup-logo.png",
+        image: "./letup-logo.png",
         imageAlt: 'Python Certificate',
         footerLink: [
           {
@@ -228,7 +234,7 @@ const splashScreen = {
         title: 'Learn HTML - For Beginners',
         subtitle:
           '',
-        image: "/udemy-logo.png",
+        image: "./udemy-logo.png",
         imageAlt: 'Udemy Certificate',
         footerLink: [
           {
@@ -241,7 +247,7 @@ const splashScreen = {
         title: 'Learn CSS - For Beginners',
         subtitle:
           '',
-        image: "/udemy-logo.png",
+        image: "./udemy-logo.png",
         imageAlt: 'Udemy Certificate',
         footerLink: [
           {
@@ -254,7 +260,7 @@ const splashScreen = {
       {
         title: 'Programming for Everybody',
         subtitle: 'Completed Online course from Michigan in 2020',
-        image: "/unv-logo.png",
+        image: "./unv-logo.png",
         imageAlt: 'Michigan Certificate',
         footerLink: [
           {name: 'Certificate of completion', url:'http://coursera.org/verify/4HATD8BJ8788'}
@@ -263,7 +269,7 @@ const splashScreen = {
       {
         title: 'Geo-computation and Geo-web Services',
         subtitle: 'Completed Online course from ISRO in 2020',
-        image: "/unv-logo.png",
+        image: "./unv-logo.png",
         imageAlt: 'ISRO Certificate',
         footerLink: [
           {name: 'Certificate of completion', url:'https://certificate.iirs.gov.in/'}
@@ -274,11 +280,11 @@ const splashScreen = {
   };
   
   export {
-    introduction,
-    socialMediaLinks,
-    splashScreen,
-    skillsSection,
-    myJourney,
-    openSource,
-    achievementSection
-  };
+  introduction,
+  socialMediaLinks,
+  splashScreen,
+  skillsSection,
+  myJourney,
+  openSource,
+  achievementSection, aboutSection
+};
