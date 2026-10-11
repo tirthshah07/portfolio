@@ -1,21 +1,40 @@
-<div class="main" [ngClass]="{'dark-mode':isDark}" id="skills">
-    <div class="skills-main-div">
-      <div class="skills-image-div">
-        <img alt="avatar" [src]="skills.softwareSkillsImage">
-      </div>
-      <div class="skills-text-div">
-        <h1 class="skills-heading" [ngClass]="{'dark-mode':isDark}">
-          {{skills.softwareSkillsHeader}}
-        </h1>
-        <div class="software-skills-main-div">
-          <ul class="dev-icons">
-            <li *ngFor="let skill of softwareSkills" class="software-skill-inline">
-              <img [src]="skill.badgeURL" [alt]="skill.skillName">
-            </li>
+<section class="section skills" aria-label="Technical skills">
+  <div class="wrap">
+    <app-section-heading index="02" eyebrow="Skills"
+      description="The tools and technologies I use to engineer scalable, high-performance interfaces — and the services behind them.">
+      A toolkit built around <em>Angular.</em>
+    </app-section-heading>
+
+    <!-- Icon grid -->
+    <ul class="icons">
+      @for (item of techs; track item.name; let i = $index) {
+        <li class="icon-tile" appReveal="scale" [revealDelay]="(i % 8) * 35" [style.--brand]="item.mono ? 'var(--fg)' : item.color">
+          <span class="icon-glow" aria-hidden="true"></span>
+          @if (item.icon) {
+            <span class="icon-mask" [style.--icon]="'url(' + item.icon + ')'"></span>
+          } @else {
+            <span class="icon-dot"></span>
+          }
+          <span class="icon-name">{{item.name}}</span>
+        </li>
+      }
+    </ul>
+
+    <!-- Category cards -->
+    <div class="groups">
+      @for (group of skills.skillGroups; track group.title; let i = $index) {
+        <article class="group tile" appReveal="up" [revealDelay]="(i % 3) * 80">
+          <div class="group-head">
+            <span class="group-num">{{i + 1 | number: '2.0'}}</span>
+            <h3>{{group.title}}</h3>
+          </div>
+          <ul class="group-items">
+            @for (item of group.items; track item) {
+              <li class="chip">{{item}}</li>
+            }
           </ul>
-        </div>
-      </div>
+        </article>
+      }
     </div>
   </div>
-  <div>
-  </div>
+</section>

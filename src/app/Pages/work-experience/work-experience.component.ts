@@ -1,27 +1,31 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { myJourney } from '../../information';
-import { ThemeService } from '../../services/theme.service';
 import { ExperienceCardComponent } from "./experience-card/experience-card.component";
+import { RevealDirective } from '../../shared/animations/reveal.directive';
+import { SectionHeadingComponent } from '../../shared/section-heading/section-heading.component';
 
 @Component({
   selector: 'app-work-experience',
   standalone: true,
-  imports: [CommonModule, ExperienceCardComponent],
+  imports: [ExperienceCardComponent, RevealDirective, SectionHeadingComponent],
   templateUrl: './work-experience.component.html',
   styleUrl: './work-experience.component.scss'
 })
-export class WorkExperienceComponent implements OnInit{
-  isDark = false;
-  workExperience = myJourney
+export class WorkExperienceComponent {
+  workExperience = myJourney;
+  // Most recent role first
+  items = [...myJourney.experience].reverse();
+  selected = 0;
 
-  constructor(private theme: ThemeService) {
-  }
-
-  ngOnInit(): void {
-    this.isDark = this.theme.isDarkMode()
-    this.theme.darkTheme$.subscribe((mode) => {
-      this.isDark = mode == true
-    })
+  // Arrow keys move between tabs (WAI-ARIA tabs pattern)
+  onKey(event: KeyboardEvent): void {
+    const next = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key];
+    if (next === undefined) {
+      return;
+    }
+    event.preventDefault();
+    this.selected = (this.selected + next + this.items.length) % this.items.length;
+    const tab = document.getElementById(`tab-${this.selected}`);
+    tab?.focus();
   }
 }

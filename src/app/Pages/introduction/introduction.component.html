@@ -1,22 +1,39 @@
-<div class="greet-main" id="greeting">
-    <div class="greeting-main">
-      <div class="greeting-text-div">
-        <div>
-          <h1 class="greeting-text css-typing" [ngClass]="{'dark-mode':isDark}">
-            <p>{{'Hello World 🙋🏻‍♂️!!'}}</p>
-            <p>{{greeting.title}}</p>
-          </h1>
-          <p class="greeting-text-p subTitle" [ngClass]="{'dark-mode':isDark}">
-            {{greeting.subTitle}}
-          </p>
-          <app-social-media></app-social-media>
-          <div class="button-greeting-div">
-            <app-button text="Check out my profile" [link]="greeting.resumeLink"></app-button>
-          </div>
-        </div>
+<section class="hero">
+  <div class="grid-bg lines" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
+
+  <div class="inner">
+    <!-- 3D stage: robot inside a woven-light particle knot -->
+    <div class="stage">
+      <div class="stage-inner" #stage aria-hidden="true"></div>
+    </div>
+
+    <!-- Copy -->
+    <div class="copy">
+      <div class="eyebrow">
+        <span class="status"><span class="ping"></span> Software Engineer · IndiaNIC</span>
+        <span class="loc">{{greeting.location}}</span>
       </div>
-      <div class="greeting-image-div">
-        <img alt="avatar" [src]="greeting.welcomeAvatar">
+
+      <h1 class="name">
+        @for (word of nameWords; track $index; let last = $last) {
+          <span class="word" [class.gradient-text]="last" [style.--i]="$index">{{word}}</span>
+        }
+        <span class="sr-only"> — Frontend Developer (Angular, React, TypeScript) in Gandhinagar, India</span>
+      </h1>
+
+      <p class="lede">
+        Frontend engineer crafting fast, scalable interfaces with <strong>Angular</strong>, <strong>React</strong>
+        and <strong>TypeScript</strong> — 4+ years across EdTech, QR platforms and e-commerce.
+      </p>
+
+      <div class="ctas">
+        <a href="#experience" class="btn-primary">
+          View experience
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+        <a href="#contact" class="btn-ghost">Contact me</a>
       </div>
     </div>
   </div>
+</section>

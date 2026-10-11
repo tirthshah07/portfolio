@@ -7,14 +7,21 @@ const splashScreen = {
   const introduction = {
     username: 'Tirth Shah',
     title: 'I\'m Tirth.',
-    welcomeAvatar: "./laptop-wave.png",
     subTitle:
-      `I\'m a passionate software developer 👨🏻‍💻 from Gandhinagar, Gujarat, a vibrant city in the western part of India.
+      `I\'m a Frontend Software Engineer 👨🏻‍💻 from Gandhinagar, Gujarat, India with 4 years of experience building scalable, responsive web applications using Angular, React, TypeScript and RxJS.
       Getting to be creative 🛠️ and trying something new is why I ❤️ what I do.
       \nLets connect to discuss a project or just want to say hi? My Inbox is open for all.`
     ,
     resumeLink:
       'https://drive.google.com/drive/folders/19JNLiUbS0il8xBUWUeYssUTEg9CDMHYw?usp=sharing',
+    roles: ['Frontend Developer', 'Angular Developer', 'React Developer', 'TypeScript Enthusiast'],
+    location: 'Gandhinagar, Gujarat, India',
+    stats: [
+      { value: 4, suffix: '+', label: 'Years of experience' },
+      { value: 4, suffix: '', label: 'Companies' },
+      { value: 15, suffix: '+', label: 'Reusable components shipped' },
+      { value: 10, suffix: 'K+', label: 'Dynamic QR codes managed' }
+    ],
     display: true
   };
   
@@ -38,16 +45,46 @@ const splashScreen = {
       '⚡ Ever since I was a kid I\'ve had a flair for technology and computers.',
       '⚡ I was first introduced to programming in my primary section and It instantly captured my interest.',
       '⚡ I\'m working towards becoming a well rounded web application developer who comes up with creative solutions.',
+      '⚡ I specialise in Angular (v10–19) with standalone components, lazy-loaded architecture, Angular Signals, Angular Material and SCSS, and I also work with React.',
+      '⚡ I have hands-on experience with JWT/RBAC authentication, payment gateway integration, internationalization (i18n), performance optimization and REST API integration.',
+      '⚡ I work in Agile/Scrum teams and have backend exposure to Node.js, Express.js and Django.',
       '⚡ Fixing bugs, solving tough hard problems, watching actual users using something I built are a few reasons why i love being a developer.',
-      '⚡ I have a bachelors degree in Electroics and Communications.',
+      '⚡ I have a B.Tech in Electronics & Communication Engineering from Government Engineering College, Bharuch.',
       '⚡ When I"m not working, I enjoy spending time in nature, exploring spirituality, playing both indoor and outdoor games and engaging in volunteer work.'
     ],
+    bio: 'Ever since I was a kid I\'ve had a flair for technology and computers. I was introduced to programming in primary school and it instantly captured my interest — today I build fast, accessible and delightful web applications for real users.',
+    highlights: [
+      'Angular (v10–19) with standalone components, lazy-loaded architecture, Signals, Angular Material and SCSS — plus React.',
+      'JWT/RBAC authentication, payment gateway integration, i18n, performance optimization and REST API integration.',
+      'Agile/Scrum teams, code reviews, and backend exposure to Node.js, Express.js and Django.'
+    ],
+    motivation: 'Fixing bugs, solving tough problems and watching real users use something I built are why I love being a developer.',
+    education: {
+      degree: 'B.Tech, Electronics & Communication',
+      school: 'Government Engineering College, Bharuch',
+      date: '2018 – 2022',
+      logo: './gec-logo.png'
+    },
+    current: {
+      role: 'Software Engineer',
+      company: 'IndiaNIC',
+      logo: './indianic-logo.png'
+    },
+    hobbies: ['🌿 Nature', '🧘 Spirituality', '🏏 Indoor & outdoor games', '🤝 Volunteering'],
     display: true
   }
 
   const skillsSection = {
 
     softwareSkillsHeader:'Technologies I\'ve dipped my toes in...',
+    skillGroups: [
+      { title: 'Languages', icon: 'fa-solid fa-code', items: ['TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'SCSS'] },
+      { title: 'Frameworks & Libraries', icon: 'fa-solid fa-layer-group', items: ['Angular (v10–19)', 'Standalone Components', 'Angular Signals', 'React', 'RxJS', 'Reactive Forms', 'AngularJS', 'jQuery'] },
+      { title: 'UI & Data', icon: 'fa-solid fa-palette', items: ['Angular Material', 'PrimeNG', 'AG Grid', 'Tailwind CSS', 'Bootstrap', 'Chart.js', 'Highcharts', 'IndexedDB'] },
+      { title: 'Auth & Security', icon: 'fa-solid fa-shield-halved', items: ['JWT', 'Refresh Tokens', 'RBAC', 'Route Guards'] },
+      { title: 'Backend (Familiar)', icon: 'fa-solid fa-server', items: ['Node.js', 'Express.js', 'Django', 'REST APIs'] },
+      { title: 'Tools & Practices', icon: 'fa-solid fa-screwdriver-wrench', items: ['Git & GitHub', 'Code Reviews', 'CI/CD', 'Postman', 'Vite', 'Agile/Scrum', 'Lazy Loading', 'i18n', 'Claude Code'] }
+    ],
     softwareSkillsImage: "./20053717-467778346_3-s5-v1.png",
     softwareSkills: [
       {
@@ -118,6 +155,62 @@ const splashScreen = {
       {
         skillName: 'NVM (Node Version Manager)',
         badgeURL: 'https://img.shields.io/badge/NVM-3C873A?style=for-the-badge&logo=nodedotjs&logoColor=white'
+      },
+      {
+        skillName: 'React',
+        badgeURL: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'
+      },
+      {
+        skillName: 'SCSS',
+        badgeURL: 'https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=sass&logoColor=white'
+      },
+      {
+        skillName: 'Angular Material',
+        badgeURL: 'https://img.shields.io/badge/Angular_Material-3F51B5?style=for-the-badge&logo=angular&logoColor=white'
+      },
+      {
+        skillName: 'PrimeNG',
+        badgeURL: 'https://img.shields.io/badge/PrimeNG-DD0031?style=for-the-badge&logo=angular&logoColor=white'
+      },
+      {
+        skillName: 'AG Grid',
+        badgeURL: 'https://img.shields.io/badge/AG_Grid-0B2545?style=for-the-badge&logoColor=white'
+      },
+      {
+        skillName: 'Tailwind CSS',
+        badgeURL: 'https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white'
+      },
+      {
+        skillName: 'Chart.js',
+        badgeURL: 'https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white'
+      },
+      {
+        skillName: 'Highcharts',
+        badgeURL: 'https://img.shields.io/badge/Highcharts-263238?style=for-the-badge&logoColor=white'
+      },
+      {
+        skillName: 'Express.js',
+        badgeURL: 'https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white'
+      },
+      {
+        skillName: 'JWT',
+        badgeURL: 'https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white'
+      },
+      {
+        skillName: 'Vite',
+        badgeURL: 'https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white'
+      },
+      {
+        skillName: 'GitHub',
+        badgeURL: 'https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'
+      },
+      {
+        skillName: 'Postman',
+        badgeURL: 'https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white'
+      },
+      {
+        skillName: 'Claude Code',
+        badgeURL: 'https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white'
       }
     ],
     display: true
@@ -131,9 +224,11 @@ const splashScreen = {
     display: true,
     experience: [
       {
-        role: 'Student',
-        short_note: 'ECE Engineer',
-        company: 'Government Engineering College - Bhaurch',
+        role: 'B.Tech, Electronics & Communication Engineering',
+        short_note: 'Bharuch, Gujarat',
+        type: 'Education',
+        tags: ['B.Tech', 'Electronics & Communication', 'Design Engineering'],
+        company: 'Government Engineering College - Bharuch',
         companyLogo: "./gec-logo.png",
         date: 'Jun 2018 – Jun 2022',
         desc: '',
@@ -146,8 +241,10 @@ const splashScreen = {
       {
         role: 'Intern',
         company: 'Cutting Edge Infotech',
-        short_note: '',
+        short_note: 'Vadodara, Gujarat',
         companyLogo: "./cei-logo.png",
+        type: 'Internship',
+        tags: ['JavaScript', 'AngularJS', 'Bootstrap', 'Tailwind CSS'],
         date: 'Jun 2022 – Sep 2022',
         desc: '',
         keyNotes: [
@@ -160,29 +257,67 @@ const splashScreen = {
       {
         role: 'Frontend Developer',
         company: 'Cutting Edge Infotech',
-        short_note: '',
+        short_note: 'Vadodara, Gujarat',
         companyLogo: "./cei-logo.png",
+        type: 'Full-time',
+        tags: ['Angular 14', 'AngularJS', 'jQuery', 'Bootstrap', 'REST APIs'],
         date: 'Sep 2022 – Nov 2023',
         desc: '',
         keyNotes: [
-          'Developed dynamic web applications using AngularJS and jQuery, effectively integrating REST APIs to enhance application features and performance',
+          'Designed and delivered a Travel Portal in Angular 14 with role-based hotel booking workflows',
+          'Built dynamic, mobile-responsive web applications using AngularJS, jQuery, Bootstrap and REST APIs',
           'Conducted various R&D activities to improve performance of existing modules in the project',
-          'Explored Angular, Node and React as a part of R&d Activities',
-          'Created one project for client using Angular 14',
           'Mentored and trained two newbies into the project'
         ]
       },
       {
         role: 'Angular Developer',
         company: 'Samcom Technobrains Pvt Ltd',
-        short_note: '',
+        short_note: 'Ahmedabad, Gujarat',
         companyLogo: "./samcom-logo.png",
-        date: 'Dec 2023 – Current',
+        type: 'Full-time',
+        tags: ['Angular', 'i18n', 'JWT', 'Route Guards', 'REST APIs'],
+        date: 'Dec 2023 – Sep 2024',
         desc: '',
         keyNotes: [
-          'Worked on various 4-5 different web application using Angular',
-          'Explored Angular 17, Python, Django, SQLite, Gitlab as a part of R&d Activities',
+          'Built an MCP (Model Context Protocol)-based chatbot application with document search via REST APIs and a responsive SCSS UI',
+          'Implemented multilingual support (i18n) for 4 languages and role-based authentication using JWT and Route Guards',
+          'Delivered an export module generating thousands of flat files for ICEGATE (Indian Customs) compliance',
           'Migrated an application from v10 - v16 in Angular'
+        ]
+      },
+      {
+        role: 'Software Engineer',
+        company: 'Arbelos Solution',
+        short_note: 'Gandhinagar, Gujarat',
+        companyLogo: "./arbelos-logo.svg",
+        type: 'Full-time',
+        tags: ['Angular 18', 'Signals', 'Angular Material', 'SCSS', 'JWT / RBAC', 'Payment gateways'],
+        date: 'Nov 2024 – Nov 2025',
+        desc: '',
+        keyNotes: [
+          'Built a product serving 500–1,000 users from scratch, using a fully lazy-loaded Angular 18 architecture with standalone components and reusable services',
+          'Developed custom directives (user permissions, image handling, infinite scroll) and reusable UI components with Angular Material and SCSS',
+          'Integrated 3 payment gateways and built authentication flows with JWT, refresh tokens and RBAC',
+          'Optimized performance with Angular Signals, lazy loading and @for with track; improved UX with Reactive Forms validation and responsive design'
+        ]
+      },
+      {
+        role: 'Software Engineer',
+        company: 'IndiaNIC',
+        short_note: 'Ahmedabad, Gujarat',
+        companyLogo: "./indianic-logo.png",
+        type: 'Full-time',
+        tags: ['Angular', 'TypeScript', 'SCSS', 'RBAC', 'React 19', 'Vite'],
+        date: 'Nov 2025 – Present',
+        desc: '',
+        keyNotes: [
+          'Skills Check (EdTech): Core frontend developer for the learner web app and admin panel of a platform built to scale to 50–70 schools',
+          'Built 15+ reusable standalone assessment question-type components (MCQ, drag-and-drop, audio, sequence selection, fill-in-the-blank) and integrated an EPUB reader with highlight and bookmark support',
+          'Developed admin-side assessment and question-bank management plus reusable data-table features (enable/disable/delete, global sorting, persistent pagination)',
+          'CambridgeQR: Implemented RBAC-based authentication, role-gated dashboards, and the QR Generator and publishing module for a platform managing 10,000+ dynamic QR codes',
+          'Upgraded a Vite-based React 17 template to React 19, reproducing pixel-accurate UI under a namespaced design system',
+          'Action Truck Parts (E-commerce): Fixed product-listing search and sort, similar-products state and routing, and order and cart total calculations'
         ]
       }
     ]
@@ -269,7 +404,7 @@ const splashScreen = {
       {
         title: 'Geo-computation and Geo-web Services',
         subtitle: 'Completed Online course from ISRO in 2020',
-        image: "./unv-logo.png",
+        image: "./isro-logo.png",
         imageAlt: 'ISRO Certificate',
         footerLink: [
           {name: 'Certificate of completion', url:'https://certificate.iirs.gov.in/'}

@@ -1,25 +1,19 @@
-<div class="social-media-div" *ngIf="socialMediaLinks.display">
-    <a
-      *ngIf="socialMediaLinks.github.trim() != ''"
-      [href]='socialMediaLinks.github'
-      [ngClass]="isDark ? 'icon-button-dark' : 'icon-button'"
-      class="icon-button"
-      target="_blank"
-      rel="noopener noreferrer">
-      <i class="fa-brands fa-github"></i>
-    </a>
-    <a
-      *ngIf="socialMediaLinks.gmail.trim() != ''"
-      [href]='"mailto:" + socialMediaLinks.gmail'
-      [ngClass]="isDark ? 'icon-button-dark' : 'icon-button'"      target="_blank"
-      rel="noopener noreferrer">
-      <i class="fa-solid fa-envelope"></i>
-    </a>
-    <a
-      *ngIf="socialMediaLinks.linkedin.trim() != ''"
-      [href]='socialMediaLinks.linkedin'
-      [ngClass]="isDark ? 'icon-button-dark' : 'icon-button'"      target="_blank"
-      rel="noopener noreferrer">
-      <i class="fa-brands fa-linkedin"></i>
-    </a>
+@if (socialMediaLinks.display) {
+  <div class="socials">
+    @if (socialMediaLinks.github.trim() != '') {
+      <a [href]="socialMediaLinks.github" class="social" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    }
+    @if (socialMediaLinks.linkedin.trim() != '') {
+      <a [href]="socialMediaLinks.linkedin" class="social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+    }
+    @if (socialMediaLinks.gmail.trim() != '') {
+      <a [href]="'mailto:' + socialMediaLinks.gmail" class="social" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    }
   </div>
+}

@@ -1,87 +1,127 @@
-@import '../../../styles.scss';
-.main{
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0 auto;
-  margin-top: 2rem;
+.skills {
+  isolation: isolate;
+
+  // Blueprint grid behind the section, faded at the edges
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 40%, transparent 85%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 40%, transparent 85%);
+  }
 }
 
-.skills-main-div {
-  display: flex;
-  width: 100%;
+/* ---------- Icon grid ---------- */
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 56px;
+
+  @media (min-width: 560px) { grid-template-columns: repeat(4, 1fr); }
+  @media (min-width: 900px) { grid-template-columns: repeat(8, 1fr); }
+}
+
+.icon-tile {
+  position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  aspect-ratio: 1;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--card-soft);
+  transition: border-color 0.3s, transform 0.4s var(--ease);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--brand) 60%, transparent);
+    transform: translateY(-4px);
+
+    .icon-glow { opacity: 0.35; }
+    .icon-mask { transform: scale(1.12); }
+  }
 }
 
-.skills-text-div {
-  margin-left: 50px;
+.icon-glow {
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  background: var(--brand);
+  filter: blur(24px);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 
-.skills-main-div > * {
-  flex: 1;
-  margin-bottom: 30px;
+.icon-mask {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: var(--brand);
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+  transition: transform 0.4s var(--ease);
 }
 
-.skills-image-div > img {
-  max-width: 100%;
-  height: auto;
+.icon-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand);
 }
 
-.skills-heading {
-  font-size: 56px;
-  line-height: 50px;
-  margin-bottom: 30px;
-  font-weight: 400;
-}
-.subTitle {
-  color: $subTitle;
-}
-
-.dev-icons {
-  padding-left: 0;
-  list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
+.icon-name {
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
   text-align: center;
+  line-height: 1.2;
+  color: color-mix(in srgb, var(--fg) 80%, transparent);
 }
 
-.software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
+/* ---------- Category cards ---------- */
+
+.groups {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1024px) { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .skills-heading {
-    font-size: 40px;
-  }
+.group-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
 }
-@media (max-width: 768px) {
-  .skills-heading {
-    font-size: 30px;
-    text-align: center;
-  }
-  .greeting-text-p {
-    font-size: 16px;
-    line-height: normal;
-  }
-  .skills-main-div {
-    flex-direction: column;
-  }
-  .skills-text-div {
-    margin-left: 0px;
-    margin: 20px;
-  }
-  .skills-text {
-    font-size: 16px;
-  }
-  .skills-text-subtitle {
-    font-size: 16px;
-    text-align: center;
-  }
-  .skills-image-div {
-    /* display: none; */
-    order: 2;
-  }
+
+.group-num {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--primary);
+}
+
+.group-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
 }

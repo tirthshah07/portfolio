@@ -1,38 +1,116 @@
-.experience-cards-div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 1rem 1rem;
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+    align-items: start;
   }
-  
-  .experience-heading {
-    font-size: 56px;
-    font-weight: 400;
-    margin-bottom: 30px;
+}
+
+.tab-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+
+  @media (min-width: 900px) {
+    flex-direction: column;
+    gap: 6px;
+    overflow: visible;
+    position: sticky;
+    top: 100px;
   }
-  
-  .experience-container {
-    display: flex;
-    width: 90%;
-    padding: 20px 10px;
-    margin: 0px auto;
-    margin-top: 2rem;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  flex-shrink: 0;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card-soft);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s, transform 0.3s var(--ease);
+
+  // Gradient accent bar on the active tab
+  &::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 14px;
+    bottom: 14px;
+    width: 3px;
+    border-radius: 3px;
+    background: var(--gradient);
+    transform: scaleY(0);
+    transition: transform 0.35s var(--ease);
   }
-  
-  .experience-container > * {
-    flex: 1;
+
+  &:hover { border-color: color-mix(in srgb, var(--primary) 40%, transparent); }
+
+  &.active {
+    border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+    background: color-mix(in srgb, var(--primary) 8%, var(--card-soft));
+
+    &::before { transform: scaleY(1); }
+    .tab-company { color: var(--fg); }
   }
-  
-  /* Media Query */
-  
-  @media (max-width: 1380px) {
-    .experience-heading {
-      font-size: 40px;
-    }
+
+  &:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+  @media (min-width: 900px) {
+    &.active { transform: translateX(6px); }
   }
-  
-  @media (max-width: 768px) {
-    .experience-heading {
-      font-size: 30px;
-      text-align: center;
-    }
-  }
+}
+
+.tab-company {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--fg) 75%, transparent);
+  white-space: nowrap;
+
+  @media (min-width: 900px) { white-space: normal; }
+}
+
+.tab-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted-fg);
+  white-space: nowrap;
+}
+
+.tab-now {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 10px #34d399;
+}
+
+.panel {
+  min-height: 320px;
+  animation: panel-in 0.5s var(--ease);
+
+  @media (min-width: 640px) { padding: 36px; }
+}
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}

@@ -1,51 +1,9 @@
-@use '../../../styles.scss' as *;
-.achievement-heading {
-  font-size: 40px;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0px;
-}
-.achievement-subtitle {
-  text-transform: uppercase;
-  margin-top: 20px;
-}
-.subTitle {
-  color: $subTitle;
-}
-
-.achievement-cards-div {
+.certs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
-}
+  grid-template-columns: 1fr;
+  gap: 16px;
 
-.dark-mode {
-  background-color: $darkBackground;
-  color: $textColorDark;
-  transition: "0.1s";
-}
+  @media (min-width: 768px) { grid-template-columns: repeat(2, 1fr); }
 
-.achievement-main-div{
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
-}
-
-/* Media Query */
-@media (max-width: 1380px) {
-  .achievement-heading {
-    font-size: 40px;
-  }
-}
-@media (max-width: 768px) {
-  .achievement-heading {
-    font-size: 30px;
-    text-align: center;
-  }
-  .achievement-subtitle {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
-  }
+  li { display: flex; }
 }

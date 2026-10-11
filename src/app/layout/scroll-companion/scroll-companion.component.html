@@ -1,0 +1,38 @@
+<aside class="companion" [class.visible]="visible" aria-label="Guide" [attr.aria-hidden]="!visible">
+  <button type="button" class="robot" (click)="collapsed = !collapsed"
+          [attr.aria-label]="collapsed ? 'Show what the guide is saying' : 'Tuck the guide\'s message away'">
+    <span class="robot-glow" aria-hidden="true"></span>
+    <span class="robot-stage" #stage aria-hidden="true"></span>
+  </button>
+
+  <div class="side">
+    @if (showBubble) {
+      <p class="bubble" role="status" aria-live="polite">
+        <span class="sr-only">{{line}}</span>
+        <span aria-hidden="true">{{typed}}@if (typed.length < line.length) {<span class="caret"></span>}</span>
+      </p>
+    }
+
+    <div class="controls">
+      @if (canSpeak && !quiet) {
+        <button type="button" class="ctrl" (click)="toggleMute()" [attr.aria-pressed]="!muted"
+                [attr.aria-label]="muted ? 'Read aloud' : 'Stop reading aloud'">
+          @if (muted) {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/></svg>
+          } @else {
+            <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          }
+          <span class="ctrl-text">{{muted ? 'Listen' : 'Mute'}}</span>
+        </button>
+      }
+      <button type="button" class="ctrl round" (click)="toggleQuiet()" [attr.aria-pressed]="quiet"
+              [attr.aria-label]="quiet ? 'Show guide messages' : 'Hide guide messages'">
+        @if (quiet) {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>
+        } @else {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="m2 2 20 20"/></svg>
+        }
+      </button>
+    </div>
+  </div>
+</aside>

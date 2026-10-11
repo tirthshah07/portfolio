@@ -15,9 +15,8 @@ export class ThemeService {
     this.renderer = rendererFactory.createRenderer(null, null);
     let initialValue = false;
     if(isPlatformBrowser(this.platformId)){
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        initialValue = true;
-      }
+      // Dark "Ember" is the default look; an explicit choice is remembered in localStorage
+      initialValue = true;
 
       const item = window.localStorage.getItem('darkTheme');
     this.darkTheme = item ? (item == 'yes') : initialValue;
@@ -26,9 +25,9 @@ export class ThemeService {
       this.renderer.addClass(body, 'dark-mode');
       // (document.getElementById('body') as HTMLElement).classList.add('dark-mode');
     }
-    this.darkTheme$ = new BehaviorSubject<boolean>(this.darkTheme)
     }
-    
+    this.darkTheme$ = new BehaviorSubject<boolean>(this.darkTheme === true)
+
    }
 
 

@@ -1,36 +1,39 @@
-<div class="header" [ngClass]="{'dark-menu': isDark}">
-    <a href="/" class="logo">
-      <span class="grey-color"> &lt;</span>
-      <span [ngClass]="isDark ? 'logo-name' : 'dark-logo-name'">{{greeting.username}}</span>
-      <span class="grey-color">/&gt;</span>
+<header class="header" [class.scrolled]="sections.scrolled()" [class.open]="menuOpen">
+  <div class="bar">
+    <a href="#home" class="brand" aria-label="Tirth Shah — home">
+      <span class="mark">TS</span>
+      <span class="brand-name">Tirth Shah</span>
     </a>
-    <input class="menu-btn" type="checkbox" id="menu-btn">
-    <label class="menu-icon" for="menu-btn">
-      <span [ngClass]="{'navicon-dark': isDark}" class="navicon"></span>
-    </label>
-    <ul [ngClass]="{'dark-menu': isDark}" class="menu">
-        @if(information.introduction.display){
-            <li *ngIf="information.introduction.display">
-              <a href="#hello">Hello</a>
-            </li>
-        }
-      <li>
-        <a href="#about-me">About Me</a>
-      </li>
-      <li>
-        <a href="#skills">Skills</a>
-      </li>
-      <li>
-        <a href="#journey">Journey</a>
-      </li>
-      <li>
-        <a href="#projects">Projects</a>
-      </li>
-      <li>
-        <a href="#achievements">Achievements</a>
-      </li>
-      <li style="align-items: center; margin: 16px">
-        <app-toggle-switch></app-toggle-switch>
-      </li>
-    </ul>
+
+    <!-- Desktop links with a sliding underline -->
+    <nav class="links" aria-label="Primary" #nav>
+      @for (item of items; track item.id) {
+        <a [href]="'#' + item.id" class="link" [attr.data-id]="item.id"
+           [class.active]="sections.active() === item.id"
+           [attr.aria-current]="sections.active() === item.id ? 'page' : null">{{item.label}}</a>
+      }
+      <span class="underline" aria-hidden="true" [style.transform]="'translateX(' + bar.left + 'px)'" [style.width.px]="bar.width" [class.ready]="bar.width > 0"></span>
+    </nav>
+
+    <div class="actions">
+      <app-toggle-switch></app-toggle-switch>
+      <a [href]="resume" target="_blank" rel="noopener noreferrer" class="resume">
+        Resume
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </a>
+      <button type="button" class="burger" (click)="menuOpen = !menuOpen" [attr.aria-expanded]="menuOpen" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+
+  <!-- Mobile panel -->
+  <nav class="panel" aria-label="Mobile">
+    @for (item of items; track item.id; let i = $index) {
+      <a [href]="'#' + item.id" class="panel-link" [style.--i]="i" [class.active]="sections.active() === item.id" (click)="menuOpen = false">
+        <span class="panel-num">0{{i + 1}}</span>{{item.label}}
+      </a>
+    }
+    <a [href]="resume" target="_blank" rel="noopener noreferrer" class="panel-resume">Download resume ↗</a>
+  </nav>
+</header>

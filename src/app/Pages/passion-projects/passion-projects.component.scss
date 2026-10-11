@@ -1,43 +1,75 @@
-@use '../../../styles.scss' as *;
-
-.project-title {
-  font-size: 52px;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.startup-project-text img {
-  max-width: 100%;
-  height: auto;
-}
-
-.repo-cards-div-main {
-  font-family: 'JetBrains Mono', monospace;
+.repos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem 1rem;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1024px) { grid-template-columns: repeat(3, 1fr); }
+
+  li { display: flex; }
 }
 
+.gh {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 260px;
+  background:
+    linear-gradient(120deg, color-mix(in srgb, var(--primary) 14%, var(--card-soft)), var(--card-soft) 55%, color-mix(in srgb, var(--accent) 14%, var(--card-soft))) padding-box,
+    var(--gradient) border-box;
+  transition: border-color 0.5s ease, transform 0.5s var(--ease);
 
-.main{
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
+  &:hover {
+    transform: translateY(-2px);
+    .gh-arrow { transform: translate(3px, -3px); color: var(--primary); }
+    .gh-glow { opacity: 1; }
+  }
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .project-title {
-    font-size: 40px;
-  }
+.gh-glow {
+  position: absolute;
+  right: -10%;
+  bottom: -40%;
+  width: 60%;
+  height: 120%;
+  border-radius: 50%;
+  background: var(--accent);
+  filter: blur(90px);
+  opacity: 0.25;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
-@media (max-width: 768px) {
-  .project-title {
-    font-size: 30px;
-    text-align: center;
-  }
-  .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
+
+.gh-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gh-arrow {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s var(--ease), color 0.3s;
+}
+
+.gh-handle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 5.5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.gh-mark {
+  width: 0.9em;
+  height: 0.9em;
+  flex-shrink: 0;
 }

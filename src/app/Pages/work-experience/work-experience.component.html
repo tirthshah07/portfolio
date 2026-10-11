@@ -1,12 +1,38 @@
-<div id="experience" *ngIf="workExperience.display">
-    <div class="experience-container" id="workExperience">
-      <div>
-        <h1 class="experience-heading">My Journey</h1>
-        <div class="experience-cards-div">
-          <div *ngFor="let experience of workExperience.experience">
-            <app-experience-card [item]="experience"></app-experience-card>
-          </div>
+@if (workExperience.display) {
+  <section class="section" aria-label="Professional work experience">
+    <div class="wrap">
+      <app-section-heading index="03" eyebrow="Experience"
+        description="From an ECE graduate to a frontend engineer — pick a company to see what I worked on there.">
+        Where I've <em>shipped</em> code.
+      </app-section-heading>
+
+      <div class="tabs" appReveal="up">
+        <!-- Company list -->
+        <div class="tab-list" role="tablist" aria-label="Companies">
+          @for (exp of items; track $index; let i = $index) {
+            <button type="button" class="tab" role="tab"
+                    [id]="'tab-' + i" [attr.aria-controls]="'panel-' + i"
+                    [attr.aria-selected]="selected === i" [attr.tabindex]="selected === i ? 0 : -1"
+                    [class.active]="selected === i"
+                    (click)="selected = i" (keydown)="onKey($event)">
+              <span class="tab-company">{{exp.company}}</span>
+              <span class="tab-date">{{exp.date}}</span>
+              @if (i === 0) {
+                <span class="tab-now" aria-label="Current role"></span>
+              }
+            </button>
+          }
         </div>
+
+        <!-- Selected role -->
+        @for (exp of items; track $index; let i = $index) {
+          @if (selected === i) {
+            <div class="panel tile" role="tabpanel" [id]="'panel-' + i" [attr.aria-labelledby]="'tab-' + i">
+              <app-experience-card [item]="exp" [current]="i === 0"></app-experience-card>
+            </div>
+          }
+        }
       </div>
     </div>
-  </div>
+  </section>
+}

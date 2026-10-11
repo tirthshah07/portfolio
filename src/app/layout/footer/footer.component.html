@@ -1,0 +1,29 @@
+<footer class="footer">
+  <div class="line" aria-hidden="true"></div>
+  <div class="wrap row">
+    <a href="#home" class="brand">
+      <span class="mark">TS</span>
+      <span>
+        <span class="b-name">{{name}}</span>
+        <span class="b-sub">Frontend Engineer · Gandhinagar</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Footer">
+      @for (item of nav; track item.href) {
+        <a [href]="item.href">{{item.label}}</a>
+      }
+    </nav>
+
+    <div class="elsewhere">
+      @for (item of elsewhere; track item.label) {
+        <a [href]="item.href" target="_blank" rel="noopener noreferrer">{{item.label}}</a>
+      }
+    </div>
+  </div>
+
+  <div class="wrap bottom">
+    <p>&copy; {{year}} {{name}} · Built with Angular &amp; three.js</p>
+    <a [href]="'mailto:' + email">{{email}}</a>
+  </div>
+</footer>

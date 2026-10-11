@@ -5,7 +5,9 @@ export interface IExperienceCard {
     date: string,
     desc: string,
     short_note: string,
-    keyNotes?: string[]
+    keyNotes?: string[],
+    type?: string,
+    tags?: string[]
 }
 export interface IWorkExperience{
     display:boolean,

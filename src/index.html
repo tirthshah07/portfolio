@@ -2,14 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>PersonalPortfolioWebsite</title>
+  <title>Tirth Shah | Frontend Developer</title>
+  <script>
+    // Enables scroll-reveal hidden states only when JS runs and motion is allowed
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('anim-ready');
+    }
+  </script>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tirth Shah — Frontend Developer specialising in Angular, React and TypeScript.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="mat-typography">
+<body>
+  <script>
+    // Apply the saved theme before first paint (dark "Ember" by default)
+    try {
+      if (localStorage.getItem('darkTheme') !== 'no') { document.body.classList.add('dark-mode'); }
+    } catch (e) { document.body.classList.add('dark-mode'); }
+  </script>
   <app-root></app-root>
 </body>
 </html>

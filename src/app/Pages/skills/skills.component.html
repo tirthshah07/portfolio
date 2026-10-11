@@ -1,20 +1,69 @@
-<div class="main" [ngClass]="{'dark-mode':isDark}" id="about-me">
-    <div class="skills-main-div">
-      <div class="skills-image-div">
-        <img alt="Boy working" [src]="skillsImage">
-      </div>
-      <div class="skills-text-div">
-        <h1 class="skills-heading" [ngClass]="{'dark-mode':isDark}">
-          {{aboutSection.title}}
-        </h1>
-        <p class="subTitle skills-text-subtitle" [ngClass]="{'dark-mode':isDark}">
-          {{aboutSection.subTitle}}
-        </p>
-        <div *ngFor="let skill of aboutSection.skills">
-          <p class="subTitle skills-text" [ngClass]="{'dark-mode':isDark}">
-           {{skill}}
-          </p>
+<section class="section" aria-label="About Tirth Shah">
+  <div class="wrap">
+    <app-section-heading index="01" eyebrow="About"
+      description="Four-plus years shipping web products — from pixel-accurate Angular and React interfaces to the auth, payments and data flows behind them.">
+      Engineering interfaces that <em>scale.</em>
+    </app-section-heading>
+
+    <div class="about">
+      <!-- Sticky profile card -->
+      <aside class="profile tile" appReveal="left">
+        <div class="avatar">
+          <span class="avatar-ring" aria-hidden="true"></span>
+          <span class="avatar-core">TS</span>
+        </div>
+        <p class="p-name">{{name}}</p>
+        <p class="p-role">Frontend Software Engineer</p>
+
+        <dl class="facts">
+          <div><dt>Currently</dt><dd>{{about.current.role}}, {{about.current.company}}</dd></div>
+          <div><dt>Based in</dt><dd>Gandhinagar, India · <span #clock></span> IST</dd></div>
+          <div><dt>Education</dt><dd>{{about.education.degree}}, GEC Bharuch</dd></div>
+          <div><dt>Focus</dt><dd>Angular · React · TypeScript</dd></div>
+        </dl>
+
+        <a href="#contact" class="p-cta">
+          <span class="ping"></span>
+          Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </aside>
+
+      <div class="story">
+        <div class="bio" appReveal="up">
+          <p class="bio-lead">{{about.bio}}</p>
+          <p class="bio-more">{{about.motivation}}</p>
+        </div>
+
+        <ul class="stats" appReveal="up" [revealDelay]="80">
+          @for (stat of stats; track stat.label) {
+            <li>
+              <span class="stat-value"><span [appCountUp]="stat.value"></span>{{stat.suffix}}</span>
+              <span class="stat-label">{{stat.label}}</span>
+            </li>
+          }
+        </ul>
+
+        <ul class="highlights">
+          @for (item of about.highlights; track $index) {
+            <li appReveal="up" [revealDelay]="120 + $index * 70">
+              <span class="hl-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span>{{item}}</span>
+            </li>
+          }
+        </ul>
+
+        <div class="core" appReveal="up" [revealDelay]="200">
+          <p class="mono-label">Core competencies</p>
+          <ul class="chips">
+            @for (tech of coreStack; track tech) {
+              <li class="chip">{{tech}}</li>
+            }
+          </ul>
         </div>
       </div>
     </div>
   </div>
+</section>
