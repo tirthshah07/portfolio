@@ -12,8 +12,7 @@ const splashScreen = {
       Getting to be creative 🛠️ and trying something new is why I ❤️ what I do.
       \nLets connect to discuss a project or just want to say hi? My Inbox is open for all.`
     ,
-    resumeLink:
-      'https://drive.google.com/drive/folders/19JNLiUbS0il8xBUWUeYssUTEg9CDMHYw?usp=sharing',
+    resumeLink: './Tirth_Shah_Resume.pdf',
     roles: ['Frontend Developer', 'Angular Developer', 'React Developer', 'TypeScript Enthusiast'],
     location: 'Gandhinagar, Gujarat, India',
     stats: [
